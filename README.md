@@ -1,4 +1,5 @@
 **Overview**
+
 The Store Admin Web Application is a PHP + MySQL based management system that allows administrators to manage stores, vendors, and items from a central web interface.
 It provides features to:
   View all stores and their inventories.
