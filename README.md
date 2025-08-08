@@ -12,9 +12,11 @@ It provides features to:
 **Features:**
 
 _Login Page_
+
 Dummy login form (username & password required to access admin tools).
 
 _Home Page_
+
 Quick navigation to Stores, Tables, and other management features.
 
 _Stores Page_
