@@ -1,102 +1,88 @@
-**Overview**
+# Store Admin Web Application
 
-The Store Admin Web Application is a PHP + MySQL based management system that allows administrators to manage stores, vendors, and items from a central web interface.
+---
 
-It provides features to:
+## 📌 Overview
+The **Store Admin Web Application** is a PHP + MySQL based management system that allows administrators to manage stores, vendors, and items from a central web interface.  
 
-  View all stores and their inventories.
-  
-  Add new items to a store (with vendor linking and initial stock count).
-  
-  Update stock counts.
-  
-  Delete items (removing them globally if necessary).
-  
-  Automatically clean up vendors with no remaining supplies.
-  
-  Manage vendor and item IDs explicitly.
+**Core Functions:**
+- View all stores and their inventories.
+- Add new items to a store (with vendor linking and initial stock count).
+- Update stock counts.
+- Delete items globally, including vendor cleanup.
+- Explicitly manage `iId` and `vId`.
 
-**Features:**
+---
 
-_Login Page_
+## ✨ Features
 
-Dummy login form (username & password required to access admin tools).
+### 1. Login Page
+- Simple login form to access admin tools.
 
-_Home Page_
+### 2. Home Page
+- Quick navigation to **Stores**, **Tables**, and other management features.
 
-Quick navigation to Stores, Tables, and other management features.
+### 3. Stores Page
+- List all stores with store ID.
+- Select a store to view inventory:
+  - Item name, category, price, stock count.
+  - Update stock count.
+  - Delete item everywhere (removes from all stores & cleans unused vendors).
+- Add new item to a store:
+  - Create new vendor **or** choose an existing vendor.
+  - Manually set `iId` and `vId`.
+  - Provide name, category, price, and initial stock.
 
-_Stores Page_
+### 4. Tables Page
+- View database tables directly (read-only or editable depending on setup).
 
-Lists all stores (name, address, and store ID).
+---
 
-Selecting a store shows its current inventory with:
+## 🛠 Technical Requirements
+- **Server:** Apache with PHP 8+ (tested with XAMPP)
+- **Database:** MySQL 5.7+
+- **Browser:** Chrome, Firefox, or Edge
 
-  Item name, category, price, stock count.
-  
-  Option to update stock count.
-  
-  Option to delete an item everywhere (including vendor cleanup).
-  
-Add a new item to the selected store:
+---
 
-  Create a new vendor or select an existing vendor.
-  
-  Specify iId and vId manually (required).
-  
-  Provide item name, category, price, and initial stock.
-  
+## 📂 Database Tables
+- `store` – Stores information.
+- `item` – Items available for sale.
+- `store_item` – Links stores to items with stock count.
+- `vendor` – Vendor details.
+- `vendor_item` – Links vendors to items.
 
-_Tables Page_
+---
 
-Directly view database tables (read-only or editable, depending on setup).
+## 🚀 Installation
+1. Copy all files into your XAMPP `htdocs` directory:
+   ```bash
+   C:\xampp\htdocs\store
 
-**Technical Requirements**
+2. Import the provided database `.sql` file into MySQL.
 
-Server: Apache with PHP 8+ (tested with XAMPP).
+3. Update `config.php` with your MySQL credentials.
 
-Database: MySQL 5.7+.
+4. Start Apache and MySQL in XAMPP.
 
-Browser: Chrome, Firefox, or Edge.
+5. Access the site in your browser: `http://localhost/store`
 
-**Database Tables Used**
+## 📖 Usage
 
-_store_ – Stores information.
+1. Login using provided credentials.
 
-_item_ – Items available for sale.
+2. Go to Stores to manage inventory.
 
-_store_item_ – Links stores to items with stock count.
+3. Add, update, or delete items as needed.
 
-_vendor_ – Vendor details.
+4. Vendor cleanup happens automatically when their last item is removed.
 
-_vendor_item_ – Links vendors to items.
+## ⚠️ Notes
 
-**Installation**
+- iId and vId must be entered manually when adding new items/vendors.
 
-Copy all files into your XAMPP htdocs directory (e.g., C:\xampp\htdocs\store).
+- Deleting an item removes it from all stores and deletes unused vendors.
 
-Import the provided database SQL file into MySQL.
+- All database changes are immediate.
 
-Update config.php with your MySQL credentials.
 
-Start Apache and MySQL in XAMPP.
-
-Access the site in your browser at: http://localhost/store
-
-**Usage**
-
-Login using the dummy credentials.
-
-Navigate to Stores to manage inventory.
-
-Add, update, or delete items as required.
-
-Vendor cleanup is automatic when an item deletion leaves a vendor with no products.
-
-**Important Notes**
-
-iId and vId are manually entered when adding a new item/vendor link — ensure they are unique and correct.
-
-Deleting an item removes it from all stores and cleans up unused vendors automatically.
-
-All changes are live in the database immediately.
